@@ -12,9 +12,17 @@ public class Main_h2 {
 		Scanner scanner =new Scanner(System.in);
 		select_num= scanner.next();
 		
-		ManageContacts contact= new ManageContacts();
-		Todo_list todo= new Todo_list();
-		ManageAppointment appointment = new ManageAppointment();
+		if(select_num=="1") {
+			ManageContacts contact= new ManageContacts();
+			}
+		else if(select_num=="2") {
+			Todo_list todo= new Todo_list();
+			}
+		else if(select_num=="3") {
+			ManageAppointment appointment = new ManageAppointment();
+		}
+		
+		
 		
 
 	}
