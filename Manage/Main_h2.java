@@ -11,6 +11,9 @@ public class Main_h2 {
 		System.out.print("<1.Manage Contacts  2.Manage To-do list  3.Manage Appointments> Select:");
 		Scanner scanner =new Scanner(System.in);
 		select_num= scanner.next();
+
+                           if(select_num=='2')
+                          Todo_list todo = new Todo_list();
 		
 		
 		
