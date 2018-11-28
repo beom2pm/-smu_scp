@@ -12,10 +12,10 @@ public class Main_h2 {
 		Scanner scanner =new Scanner(System.in);
 		select_num= scanner.next();
 
-		if(select_num=='1')
+		if(select_num.equals('1'))
 		Contacts = new Contacts();
-                           if(select_num=='2')
-                          Todo_list todo = new Todo_list();
+                           else if(select_num.equals('2'))
+                            Todo_list todo = new Todo_list();
 		
 		
 		
