@@ -5,26 +5,25 @@ class ManageAppointment{
 	String [][] appointment = new String[20][4];
 	int appointment_num=0;
 	int selected_num;
+	
 	Scanner s = new Scanner(System.in);
 	
-	public void app_Create(){
-		System.out.println("<Enter 4 categories.>\n");
-		System.out.println("AppointmentNumber : ");
-		appointment[appointment_num][0] = s.next();
+	public void app_Create(String num,String date,String location,String person){
+		
+		appointment[appointment_num][0] = num;
 		System.out.println("Date : ");
-		appointment[appointment_num][1] = s.next();
+		appointment[appointment_num][1] = date;
 		System.out.println("Locations : ");
-		appointment[appointment_num][2] = s.next();
+		appointment[appointment_num][2] = location;
 		System.out.println("Persons : ");
-		appointment[appointment_num][3] = s.next();
+		appointment[appointment_num][3] = person;
 		appointment_num++;
 	}
 	
 	
-	public void app_View(){
-		System.out.println("Select an appointment number : ");
-		selected_num = s.nextInt();
-		int show_num = selected_num - 1;
+	public void app_View(int view_num){
+		
+		int show_num = view_num - 1;
 		if(appointment[show_num][0] == null){
 			System.out.println("Deleted Appointment!");
 		}
@@ -38,31 +37,14 @@ class ManageAppointment{
 	}
 		
 	
-	public void app_Update(){
-		System.out.println("Select an appointment number : ");
-		selected_num = s.nextInt();
-		int selected_UpdateNum;
+	public void app_Update(int sel_num,int update_num,String updateInfo){
+
+
+			appointment[sel_num-1][update_num] = updateInfo;
 		
-		System.out.println("1. Date\n2. Locations\n3. Persons\n");
-		System.out.println("Choose the number to update : ");
-		
-		selected_UpdateNum = s.nextInt();
-		
-		if(selected_UpdateNum == 1){
-			System.out.println("Enter new date : ");
-			appointment[selected_num-1][1] = s.next();
-		}
-		if(selected_UpdateNum == 2){
-			System.out.println("Enter new Locations : ");
-			appointment[selected_num-1][2] = s.next();
-		}
-		if(selected_UpdateNum == 3){
-			System.out.println("Enter new Persons : ");
-			appointment[selected_num-1][3] = s.next();
-		}
 	}
 	
-	public void app_Delete(){
+	public void app_Delete(int sel_num){
 		
 		int selected_DeleteNum;
 		char YesOrNo;
@@ -86,6 +68,9 @@ public class ManageAppointments {
 		// TODO Auto-generated method stub
 		Scanner scanner = new Scanner(System.in);
 		int select_num;
+		int sel_num;
+		int update_num;
+		String num,date,location,person;
 		ManageAppointment manageApp = new ManageAppointment();
 		
 		while(true){
@@ -103,16 +88,47 @@ public class ManageAppointments {
 			else{
 				switch(select_num){
 				case 1 : 
-					manageApp.app_Create();
+					System.out.println("<Enter 4 categories.>\n");
+					System.out.println("AppointmentNumber : ");
+					num = scanner.next();
+					System.out.println("Date : ");
+					date = scanner.next();
+					System.out.println("Locations : ");
+					location = scanner.next();
+					System.out.println("Persons : ");
+					person = scanner.next();
+					manageApp.app_Create(num,date,location,person);
 					break;
 				case 2 :
-					manageApp.app_View();
+					System.out.println("Select an appointment number : ");
+					sel_num = scanner.nextInt();
+					manageApp.app_View(sel_num);
 					break;
 				case 3 :
-					manageApp.app_Update();
+					String updateInfo = null;
+					System.out.println("Select an appointment number : ");
+					sel_num = scanner.nextInt();
+					System.out.println("1. Date\n2. Locations\n3. Persons\n");
+					System.out.println("Choose the number to update : ");
+					update_num = scanner.nextInt();
+					if(update_num == 1){
+						System.out.println("Enter new date : ");
+						updateInfo = scanner.next();
+					}
+					if(update_num == 2){
+						System.out.println("Enter new Locations : ");
+						updateInfo = scanner.next();
+					}
+					if(update_num == 3){
+						System.out.println("Enter new Persons : ");
+						updateInfo = scanner.next();
+					}
+					manageApp.app_Update(sel_num,update_num,updateInfo);
 					break;
 				case 4 :
-					manageApp.app_Delete();
+					System.out.println("Choose the number to delete : ");
+					sel_num = scanner.nextInt();
+					manageApp.app_Delete(sel_num);
 					break;
 				}
 	
