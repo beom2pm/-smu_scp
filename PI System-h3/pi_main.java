@@ -22,7 +22,7 @@ public class pi_main {
 
 
 		if(select_num.equals("1"))
-			ManageContacts.main_contact();
+			ManageContacts.main_contacts();
 			 
 
 		else if(select_num.equals("2")) {
