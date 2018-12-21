@@ -1,0 +1,34 @@
+zscandir => 디렉토리 내의 파일명 나열
+$var=scandir('dir name');
+var_dummp($var);
+
+count=>배열크기
+count($array)
+
+echo"<li><a href="index.php?id=$array[$i]"> $array[$i]
+
+*textarea //여러 줄 쓸 수 있는 텍스트칸 만들어줌
+*file_put_contents => 파일을 만들어서 내용을 넣어줌
+file_put_contents(파일네임(데이터를 저장할 위치),입력할 data)
+form&post
+<form action="form.php" method="post">
+  <input type="text" name="title" placeholder="Title">
+  <textarea name="description"></textarea>
+  <input type="submit">
+\//
+
+///form.php에서는 $GET이 아닌 $POST를 써서 받아야 함
+ file_put_contents('data/'.$POST['title'],'data/'.$POST['description'])
+get방식은 url을 통해서 전달하는 것
+=>method=get
+
+
+=>사용자의 의도와 상관없이 웹서버가 사용자를 강제 이동시킴(redirection)
+header("location : 경로/파일명");
+
+home일 때는 update버튼 없다가 하나씩 눌러야 생기게 하려면
+<?php if(isset($_GET['id'])){?>
+<a href="update.php? id=<?php echo $_GET['id'] ?>"update</a>
+<?php> }?>
+
+*php echo=>=으로 바꿔서 줄여쓸 수  있음
