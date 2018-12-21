@@ -25,7 +25,7 @@ public class pi_main {
 			ManageContacts.main_contact();
 			 
 
-		 if(select_num.equals("2")) {
+		else if(select_num.equals("2")) {
 			Todo_list.main_todo();
 		}
 		
